@@ -8,11 +8,11 @@ if __name__ == "__main__":
     # initial imports:
 
     import os
-    import numpy as np
     import matplotlib.pyplot as plt
     import color_utilities as cu
     import matplotlib.gridspec as gridspec
 
+    #os.environ["PATH"] += os.pathsep + "/usr/local/texlive/2021/bin/universal-darwin"
     ###############################################################################
     # initial setup:
 
@@ -33,6 +33,8 @@ if __name__ == "__main__":
     eff = [1, 0.3, 0.1, 0.01, 0.001]
     logz = [-277.68, -278.37, -278.88, -280.62, -282.01]
     dlogz = [0.17, 0.17, 0.17, 0.18, 0.18]
+    ins_logz = [-284.93, -285.13, -285.16, -285.38, -285.29]
+    ins_dlogz = [0.22, 0.10, 0.10, 0.02, 0.02]
 
     ###############################################################################
     # do the plot:
@@ -49,8 +51,9 @@ if __name__ == "__main__":
     ax1 = plt.subplot(gs[0,0])
 
     # do the plot:
-    ax1.errorbar(eff, logz, yerr = dlogz, fmt = '.', color=colors[0], label='MultiNest')
-    ax1.axhspan(-282.34 - 0.18, -282.34 + 0.18, color=colors[1], alpha=0.2, label='PolyChord best')
+    ax1.errorbar(eff, logz, yerr = dlogz, fmt = '.', color=colors[0], label=r'MultiNest $\log Z$')
+    ax1.errorbar(eff, ins_logz, yerr = ins_dlogz, fmt = '.', color=colors[1], label=r'MultiNest INS $\log Z$')
+    ax1.axhspan(-282.34 - 0.18, -282.34 + 0.18, color=colors[2], alpha=0.2, label='PolyChord best')
 
     # scale:
     #ax1.set_ylim([0.0,0.5])
