@@ -35,28 +35,29 @@ if __name__ == "__main__":
     ins_logz = [-0.44, -0.415, 0.058, -0.446, 0.132]
     ins_dlogz = [0.0077, 0.00389, 0.004877, 0.006194, 0.004139]
 
+    nreps = [15, 30, 60, 120]
+    pc_logz = [-0.22817, -0.11663, -0.13532, 0.03712]
+    pc_dlogz = [0.30747, 0.30300, 0.30493, 0.30719]
+
     ###############################################################################
     # do the plot:
 
     # plot size in cm. Has to match to draft to make sure font sizes are consistent
-    x_size = 8.99
+    x_size = 18
     y_size = 7.0
     main_fontsize = 10.0
 
     # start the plot:
     fig = plt.gcf()
     fig.set_size_inches( x_size/2.54, y_size/2.54 )
-    gs = gridspec.GridSpec(1,1)
+    gs = gridspec.GridSpec(1,2)
     ax1 = plt.subplot(gs[0,0])
+    ax2 = plt.subplot(gs[0,1], sharey=ax1)
 
     # do the plot:
     ax1.errorbar(eff, logz, yerr = dlogz, fmt = '.', color=colors[0], label=r'MultiNest $\log Z$')
     ax1.errorbar(eff, ins_logz, yerr = ins_dlogz, fmt = '.', color=colors[1], label=r'MultiNest INS $\log Z$')
     ax1.axhline(0, color=colors[2], ls = "--", label='Truth')
-
-    # scale:
-    #ax1.set_ylim([0.0,0.5])
-    #ax2.set_ylim([0.0,0.5])
 
     # label on the axis:
     ax1.set_xlabel('Efficiency', fontsize=main_fontsize);
@@ -64,8 +65,13 @@ if __name__ == "__main__":
 
     ax1.set_xscale('log')
 
+    # do the plot:
+    ax2.errorbar(nreps, pc_logz, yerr = pc_dlogz, fmt = '.', color=colors[0], label=r'MultiNest $\log Z$')
+    ax2.axhline(0, color=colors[2], ls = "--", label='Truth')
+
+
     # update dimensions:
-    bottom=0.15; top=0.99; left=0.19; right=0.99; wspace=0.03; hspace=0.05
+    bottom=0.15; top=0.99; left=0.09; right=0.99; wspace=0.03; hspace=0.05
     gs.update( bottom=bottom, top=top, left=left, right=right, wspace=wspace, hspace=hspace )
 
     # legends:

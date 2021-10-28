@@ -58,7 +58,7 @@ if __name__ == "__main__":
     ax1.set_yscale('log')
 
     # update dimensions:
-    bottom=0.15; top=0.99; left=0.19; right=0.99; wspace=0.03; hspace=0.05
+    bottom=0.15; top=0.99; left=0.23; right=0.99; wspace=0.03; hspace=0.05
     gs.update( bottom=bottom, top=top, left=left, right=right, wspace=wspace, hspace=hspace )
 
     # save:
