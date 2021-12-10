@@ -38,7 +38,7 @@ if __name__ == '__main__':
     #chain3 = np.loadtxt("chains/mn-eff03-omp1-tol001_d3y1_w_.txt", usecols = [0])
 
     chain1 = np.loadtxt("chains/pc-omp1-tol01-ff01_d3y1_w.txt", usecols = [0])
-    chain2 = np.loadtxt("chains/pc-omp1-tol003-ff01_d3y1_w.txt", usecols = [0])
+    chain2 = np.loadtxt("chains/pc-omp1-tol001-ff01_d3y1_w.txt", usecols = [0])
     chain3 = np.loadtxt("chains/pc-omp1-tol1e3-ff01_d3y1_w.txt", usecols = [0])
 
     ###############################################################################
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     # do the plot:
     ax1.plot(chain1/max(chain1), lw=1., ls='-', color=colors[0], label='Tolerance = 0.1')
-    ax2.plot(chain2/max(chain2), lw=1., ls='-', color=colors[0], label='Tolerance = 0.03')
+    ax2.plot(chain2/max(chain2), lw=1., ls='-', color=colors[0], label='Tolerance = 0.01')
     ax3.plot(chain3/max(chain3), lw=1., ls='-', color=colors[0], label='Tolerance = 0.001')
 
     # label on the axis:
@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
     # title:
     ax1.set_title('PolyChord, tolerance = 0.1')
-    ax2.set_title('PolyChord, tolerance = 0.03')
+    ax2.set_title('PolyChord, tolerance = 0.01')
     ax3.set_title('PolyChord, tolerance = 0.001')
 
     # update dimensions:

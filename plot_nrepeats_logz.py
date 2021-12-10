@@ -49,8 +49,8 @@ if __name__ == "__main__":
     ax1 = plt.subplot(gs[0,0])
 
     # do the plot:
-    ax1.errorbar(nrepeats, logz, yerr = dlogz, fmt = '.', color=colors[0], label='PolyChord')
-    ax1.axhspan(-282.34 - 0.18, -282.34 + 0.18, color=colors[1], alpha=0.2, label='PolyChord best')
+    ax1.errorbar(nrepeats, logz, yerr = dlogz, fmt = '.', color=colors[3], label='PolyChord')
+    ax1.axhspan(-282.34 - 0.18, -282.34 + 0.18, color='grey', alpha=0.4, label='PolyChord best')
 
     ticks = [15, 30, 60, 120]
     ax1.set_xticks(ticks);

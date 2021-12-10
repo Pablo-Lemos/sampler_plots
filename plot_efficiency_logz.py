@@ -52,8 +52,8 @@ if __name__ == "__main__":
 
     # do the plot:
     ax1.errorbar(eff, logz, yerr = dlogz, fmt = '.', color=colors[0], label=r'MultiNest $\log Z$')
-    ax1.errorbar(eff, ins_logz, yerr = ins_dlogz, fmt = '.', color=colors[1], label=r'MultiNest INS $\log Z$')
-    ax1.axhspan(-282.34 - 0.18, -282.34 + 0.18, color=colors[2], alpha=0.2, label='PolyChord best')
+    ax1.errorbar(eff, ins_logz, yerr = ins_dlogz, fmt = '.', color='orange', label=r'MultiNest INS $\log Z$')
+    ax1.axhspan(-282.34 - 0.18, -282.34 + 0.18, color='grey', alpha=0.4, label='PolyChord best')
 
     # scale:
     #ax1.set_ylim([0.0,0.5])
